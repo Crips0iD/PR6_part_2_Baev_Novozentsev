@@ -1,0 +1,37 @@
+﻿<Page x:Class="WpfAppBaev.AddEditAnswersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="AddEditAnswersPage">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Content="Вопрос:" Style="{StaticResource CustomLabelStyle}"/>
+        <ComboBox Grid.Row="1" Name="QuestionIdComboBox" 
+                  DisplayMemberPath="QuestionText"
+                  SelectedValuePath="QuestionID"
+                  SelectedValue="{Binding QuestionID}"
+                  Style="{StaticResource CustomComboBoxStyle}"/>
+
+        <Label Grid.Row="2" Content="Текст ответа:" Style="{StaticResource CustomLabelStyle}"/>
+        <TextBox Grid.Row="3" Text="{Binding AnswerText}" 
+                 Style="{StaticResource CustomTextBoxStyle}"/>
+
+        <CheckBox Grid.Row="4" Content="Правильный ответ" 
+                  IsChecked="{Binding IsCorrect}"
+                  Style="{StaticResource CustomCheckBoxStyle}"/>
+
+        <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Сохранить" Click="SaveButton_Click" 
+                    Style="{StaticResource CustomButtonStyle}" Margin="0,0,10,0"/>
+            <Button Content="Отмена" Click="CancelButton_Click" 
+                    Style="{StaticResource CustomButtonStyle}"/>
+        </StackPanel>
+    </Grid>
+</Page>

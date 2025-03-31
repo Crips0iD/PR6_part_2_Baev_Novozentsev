@@ -1,0 +1,38 @@
+﻿<Page x:Class="WpfAppBaev.AddEditCoursesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="AddEditCoursesPage">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Content="Программа:" Style="{StaticResource CustomLabelStyle}"/>
+        <ComboBox Grid.Row="1" Name="ProgramIdComboBox" 
+                  DisplayMemberPath="ProgramName"
+                  SelectedValuePath="ProgramID"
+                  SelectedValue="{Binding ProgramID}"
+                  Style="{StaticResource CustomComboBoxStyle}"/>
+
+        <Label Grid.Row="2" Content="Название курса:" Style="{StaticResource CustomLabelStyle}"/>
+        <TextBox Grid.Row="3" Text="{Binding CourseName}" 
+                 Style="{StaticResource CustomTextBoxStyle}"/>
+
+        <Label Grid.Row="4" Content="Описание:" Style="{StaticResource CustomLabelStyle}"/>
+        <TextBox Grid.Row="5" Text="{Binding Description}" 
+                 Style="{StaticResource CustomTextBoxStyle}" Height="100" TextWrapping="Wrap"/>
+
+        <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Сохранить" Click="SaveButton_Click" 
+                    Style="{StaticResource CustomButtonStyle}" Margin="0,0,10,0"/>
+            <Button Content="Отмена" Click="CancelButton_Click" 
+                    Style="{StaticResource CustomButtonStyle}"/>
+        </StackPanel>
+    </Grid>
+</Page>
